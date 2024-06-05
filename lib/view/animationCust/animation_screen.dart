@@ -1,5 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:bright_up_image/constant.dart';
+import 'package:bright_up_image/widgets/image_item.dart';
+import 'package:bright_up_image/widgets/shape_item.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -34,8 +38,7 @@ class _AnimationCustomState extends State<AnimationCustom> {
           backgroundColor: Colors.transparent,
           leadingWidth: size.width * 0.4,
           leading: FadeInLeft(
-            delay: Duration(milliseconds: 800 ),
-
+            delay: Duration(milliseconds: 800),
             child: Padding(
               padding: const EdgeInsets.only(left: 10, top: 8, bottom: 8),
               child: Container(
@@ -67,8 +70,7 @@ class _AnimationCustomState extends State<AnimationCustom> {
           ),
           actions: [
             FadeInRight(
-              delay: Duration(milliseconds: 100 ),
-
+              delay: Duration(milliseconds: 100),
               child: Padding(
                 padding: const EdgeInsets.only(right: 10.0),
                 child: CircleAvatar(
@@ -88,210 +90,82 @@ class _AnimationCustomState extends State<AnimationCustom> {
               height: 10,
             ),
             FadeInUp(
-              delay: Duration(milliseconds: 1000),
+                delay: Duration(milliseconds: 1000),
                 child: Padding(
-              padding: const EdgeInsets.only(left: 10, top: 8, bottom: 8),
-              child: Text(
-                'Hi Marina',
-                style: TextStyle(color: AppColors.lightPatel, fontSize: 18),
-              ),
-            )),
-            FadeInUp(
-                delay: Duration(milliseconds: 1500 ),
-
-                child: Padding(
-              padding: const EdgeInsets.only(left: 10, top: 8, bottom: 8),
-              child: Container(
-                  width: size.width * 0.6,
+                  padding: const EdgeInsets.only(left: 10, top: 8, bottom: 8),
                   child: Text(
-                    'let\'s select your perfect place',
-                    style: TextStyle(
-                        color: AppColors.lightBlack,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w500),
-                    maxLines: 2,
-                  )),
-            )),
+                    'Hi Marina',
+                    style: TextStyle(color: AppColors.lightPatel, fontSize: 18),
+                  ),
+                )),
+            FadeInUp(
+                delay: Duration(milliseconds: 1500),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, top: 8, bottom: 8),
+                  child: Container(
+                      width: size.width * 0.6,
+                      child: Text(
+                        'let\'s select your perfect place',
+                        style: TextStyle(
+                            color: AppColors.lightBlack,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500),
+                        maxLines: 2,
+                      )),
+                )),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FadeInUp(
-                  delay: Duration(milliseconds: 2000 ),
-                  child: Container(
-                    height: 170,
-                    width: 170,
-                    decoration: BoxDecoration(
-                        color: AppColors.amberColor,
-                        shape: BoxShape.circle),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: size.height*0.01,
-                        ),
-                        Text(
-                          'BUY',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 17,
-                          ),
-                        ),
-                        SizedBox(
-                          height: size.height*0.03,
-                        ),
-                        Text(
-                          '1034',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w600
-                          ),
-                        ),
-                        Text(
-                          'offers',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                          ),
-                        ),
-
-                      ],
-                    ),
-
-                  ),
-                ),
+                    delay: Duration(milliseconds: 2000),
+                    child: ShapeItem(
+                      type: 'BUY',
+                      count: 1034,
+                      decoration: BoxDecoration(
+                          color: AppColors.amberColor, shape: BoxShape.circle),
+                      color: Colors.white,
+                    )),
                 FadeInUp(
-                  delay: Duration(milliseconds: 2000 ),
-                  child: Container(
-                    height: 170,
-                    width: 170,
+                  delay: Duration(milliseconds: 2000),
+                  child: ShapeItem(
+                    type: 'RENT',
+                    count: 2212,
                     decoration: BoxDecoration(
                         color: Color(0xFFFEFAF5),
                         borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: size.height*0.01,
-                        ),
-                        Text(
-                          'BUY',
-                          style: TextStyle(
-                            color: AppColors.lightPatel,
-                            fontSize: 17,
-                          ),
-                        ),
-                        SizedBox(
-                          height: size.height*0.03,
-                        ),
-                        Text(
-                          '2212',
-                          style: TextStyle(
-                              color: AppColors.lightPatel,
-                              fontSize: 40,
-                              fontWeight: FontWeight.w600
-                          ),
-                        ),
-                        Text(
-                          'offers',
-                          style: TextStyle(
-                            color: AppColors.lightPatel,
-                            fontSize: 14,
-                          ),
-                        ),
-
-                      ],
-                    ),
-
+                    color: AppColors.lightPatel,
                   ),
                 ),
               ],
             ),
-
-
-            // GridView.custom(
-            //   shrinkWrap: true,
-            //   gridDelegate: SliverQuiltedGridDelegate(
-            //     crossAxisCount: 4,
-            //     mainAxisSpacing: 4,
-            //     crossAxisSpacing: 4,
-            //     repeatPattern: QuiltedGridRepeatPattern.inverted,
-            //     pattern: const [
-            //       QuiltedGridTile(2, 2),
-            //       QuiltedGridTile(1, 1),
-            //       QuiltedGridTile(1, 1),
-            //       QuiltedGridTile(1, 2),
-            //     ],
-            //   ),
-            //   childrenDelegate: SliverChildBuilderDelegate(
-            //         (context, index) => Tile(index: index),
-            //   ),
-            // ),
-
+            SizedBox(
+              height: size.height * 0.015,
+            ),
+            FadeInUp(
+              delay: Duration(milliseconds: 2500),
+              child: Container(
+                width: size.width,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20)),
+                child: Column(
+                  children: [
+                    FadeInUp(
+                      delay: Duration(milliseconds: 2500),
+                      child: ImageItem(
+                        image:
+                            'https://www.decorpot.com/images/blogimage2047193526how-to-judge-your-style-for-home-interior-design-plans.jpg',
+                        height: size.height * 0.23,
+                        width: size.width,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class Tile extends StatelessWidget {
-  const Tile({
-    Key? key,
-    required this.index,
-    this.extent,
-    this.backgroundColor,
-    this.bottomSpace,
-  }) : super(key: key);
-
-  final int index;
-  final double? extent;
-  final double? bottomSpace;
-  final Color? backgroundColor;
-
-  @override
-  Widget build(BuildContext context) {
-    final child = Container(
-      color: backgroundColor ?? Colors.white,
-      height: extent,
-      child: Center(
-        child: CircleAvatar(
-          minRadius: 20,
-          maxRadius: 20,
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.black,
-          child: Text('$index', style: const TextStyle(fontSize: 20)),
-        ),
-      ),
-    );
-
-    if (bottomSpace == null) {
-      return child;
-    }
-
-    return Column(
-      children: [
-        Expanded(child: child),
-        Container(
-          height: bottomSpace,
-          color: Colors.green,
-        )
-      ],
-    );
-  }
-}
-
-
-class Square extends StatelessWidget {
-  const Square({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      color: const Color(0xff67549B),
     );
   }
 }
