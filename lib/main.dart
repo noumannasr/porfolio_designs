@@ -1,4 +1,4 @@
-import 'package:bright_up_image/view/animationCust/animation_screen.dart';
+import 'package:bright_up_image/view/animationCust/main_screen.dart';
 import 'package:bright_up_image/view/homes/home_page.dart';
 import 'package:bright_up_image/view/homes/step_home.dart';
 import 'package:bright_up_image/themesCustom/custom_theme.dart';
@@ -6,11 +6,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 
-void main() => runApp(MaterialApp(
+void main() => runApp(
+
+
+    MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: AppTheme.get(isLight: false),
-      home: AnimationCustom(),
+      home: MainScreen(),
       // home: HomePage(),
     ));
 
