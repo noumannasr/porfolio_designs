@@ -5,7 +5,7 @@ class AppColors {
   // gradient colors
   static const lightWhite = Color(0xFFF8F8F8);
   static const lightAlmond = Color(0xFFF6D6B2);
-
+  static const primaryColor =  Color(0xFFffd7c8);
 
   static const bg = Color(0xFFF5F3FF);
   static const navBarBg = Color(0xFF2B2B2B);
@@ -34,4 +34,12 @@ class AppImages {
   static const interiorOne = 'https://cdn.apartmenttherapy.info/image/upload/v1660745559/at/style/2022-08/Virtual%20Interior%20Design/havenly-virtual-interior-design.jpg';
   static const interiorTwo = 'https://houseandhome.com/wp-content/uploads/2023/01/LaurenMiller_AshleyMontgomeryxStouffville00092v1_HH_Dec22_39.jpg';
   static const interiorThree = 'https://hips.hearstapps.com/hmg-prod/images/radiator-cover-ideas-leanne-kardell-042-1560287803.jpg?crop=0.9653333333333334xw:1xh;center,top&resize=980:*';
+
+  static const mangoCake = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1czLTOZLQmbLqCJjDez5gJ0vGnL7-JzM56g&s';
+  static const choclateCake = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGqzGuv6cqhIG0-PkH0CkeDlDHET1nQrwJQA&s';
+  static const redVelvetCake = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLsKpx-D6KNB_vQ9Nla-NbzUR5Yb9vkskDVQ&s';
+  static const fruitCake = 'https://i.ytimg.com/vi/PMwEk4fcgFc/maxresdefault.jpg';
+  static const spongeCake = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRktzDHEyAzO0akuH9v7Kg7a3yq-lGidyu20A&s';
+  static const carrotCake = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT6tYx0otjkMk_-OdGpJjzjxbz_g88nnxnUQ&s';
+
 }

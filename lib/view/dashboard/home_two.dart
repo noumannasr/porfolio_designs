@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:bright_up_image/constant.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -61,33 +62,40 @@ class _MyHomePageTwoState extends State<MyHomePageTwo> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              height: 28,
-                              width: 28,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                      color: Colors.white, width: 0.5)),
-                              child: Center(
-                                child: Icon(
-                                  Icons.menu,
-                                  color: Colors.white,
-                                  size: 18,
+                            FadeInRight(
+                              delay: Duration(milliseconds: 1000),
+                              child: Container(
+                                height: 28,
+                                width: 28,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                        color: Colors.white, width: 0.5)),
+                                child: Center(
+                                  child: Icon(
+                                    Icons.menu,
+                                    color: Colors.white,
+                                    size: 18,
+                                  ),
                                 ),
                               ),
                             ),
-                            Container(
-                              height: 28,
-                              width: 28,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                      color: Colors.white, width: 0.5)),
-                              child: Center(
-                                child: Icon(
-                                  Icons.notification_important_rounded,
-                                  color: Colors.white,
-                                  size: 18,
+                            FadeInLeft(
+                              delay: Duration(milliseconds: 1000),
+
+                              child: Container(
+                                height: 28,
+                                width: 28,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                        color: Colors.white, width: 0.5)),
+                                child: Center(
+                                  child: Icon(
+                                    Icons.notification_important_rounded,
+                                    color: Colors.white,
+                                    size: 18,
+                                  ),
                                 ),
                               ),
                             ),

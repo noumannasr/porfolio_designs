@@ -16,7 +16,9 @@ class DropdownItemState extends State<DropdownItem> {
   String? selectedValue;
   @override
   Widget build(BuildContext context) {
+
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -81,5 +83,6 @@ class DropdownItemState extends State<DropdownItem> {
         ),
       ),
     );
+
   }
 }

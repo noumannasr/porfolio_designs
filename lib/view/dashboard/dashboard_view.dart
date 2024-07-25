@@ -106,7 +106,7 @@ class _MyHomePageDState extends State<MyHomePageD>
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).extension<CustomColorsTheme>()!;
+    final colors = Theme.of(context).extension<CustomColorsTheme>();
     return Scaffold(
       extendBody: true,
       // appBar: AppBar(
@@ -129,7 +129,7 @@ class _MyHomePageDState extends State<MyHomePageD>
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: _bottomNavIndex == 2 || _bottomNavIndex == 3
-            ? AppColors.darkPurple
+            ? Color(0xFFffc4e8)
             : _bottomNavIndex == 1
                 ? AppColors.pinkP
                 : Color(0xFF9194fd),
@@ -157,7 +157,7 @@ class _MyHomePageDState extends State<MyHomePageD>
                       : Color(0xff8689fc)
               : _bottomNavIndex == 2 || _bottomNavIndex == 3
                   ? AppColors.bg
-                  : Color(0xFF364B5F);
+                  : Colors.grey;
           return Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -180,9 +180,7 @@ class _MyHomePageDState extends State<MyHomePageD>
             ],
           );
         },
-        backgroundColor: _bottomNavIndex == 2 || _bottomNavIndex == 3
-            ? Color(0xFFE9938F)
-            : Colors.white, //Color(0xFF9ddbd5),
+        backgroundColor:  Colors.white, //Color(0xFF9ddbd5),
         activeIndex: _bottomNavIndex,
         splashColor: _bottomNavIndex == 0 || _bottomNavIndex == 1
             ? AppColors.lightPink

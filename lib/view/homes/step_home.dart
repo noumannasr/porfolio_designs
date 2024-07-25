@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
@@ -72,35 +73,43 @@ class _MyHomePageState extends State<MyHomePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
 
-                            Container(
-                              height:28,
-                              width: 28,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(color: Colors.white, width: 0.5)
-                              ),
-                              child: Center(
-                                child:  Icon(
-                                  Icons.menu,
-                                  color: Colors.white,
-                                  size: 18,
+                            FadeInLeft(
+                              delay: Duration(milliseconds: 50),
+
+                              child: Container(
+                                height:28,
+                                width: 28,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: Colors.white, width: 0.5)
+                                ),
+                                child: Center(
+                                  child:  Icon(
+                                    Icons.menu,
+                                    color: Colors.white,
+                                    size: 18,
+                                  ),
                                 ),
                               ),
                             ),
 
 
-                            Container(
-                              height:28,
-                              width: 28,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(color: Colors.white, width: 0.5)
-                              ),
-                              child: Center(
-                                child:  Icon(
-                                  Icons.notification_important_rounded,
-                                  color: Colors.white,
-                                  size: 18,
+                            FadeInRight(
+                              delay: Duration(milliseconds: 50),
+
+                              child: Container(
+                                height:28,
+                                width: 28,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(color: Colors.white, width: 0.5)
+                                ),
+                                child: Center(
+                                  child:  Icon(
+                                    Icons.notification_important_rounded,
+                                    color: Colors.white,
+                                    size: 18,
+                                  ),
                                 ),
                               ),
                             ),
@@ -114,34 +123,42 @@ class _MyHomePageState extends State<MyHomePage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: CircleAvatar(
-                              radius: 30,
-                              backgroundImage:
-                              NetworkImage('https://services.securetech-consultancy.com/personservice/PersonVerificationData/profilePhoto/4068'),),
+                          FadeInLeft(
+                            delay: Duration(milliseconds: 200),
+
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: CircleAvatar(
+                                radius: 30,
+                                backgroundImage:
+                                NetworkImage('https://services.securetech-consultancy.com/personservice/PersonVerificationData/profilePhoto/4068'),),
+                            ),
                           ),
                           SizedBox(
                             width: 10,
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text('Hello Nouman!',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineSmall
-                                      ?.copyWith(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20)),
-                              Text('Flutter Developer',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleMedium
-                                      ?.copyWith(color: Colors.white, fontSize: 14)),
-                            ],
+                          FadeInUp(
+                            delay: Duration(milliseconds: 300),
+
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text('Hello Nouman!',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineSmall
+                                        ?.copyWith(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20)),
+                                Text('Flutter Developer',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(color: Colors.white, fontSize: 14)),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -170,65 +187,73 @@ class _MyHomePageState extends State<MyHomePage> {
                       SizedBox(
                         height: size.height*0.007,
                       ),
-                      Padding(
-                        padding:
-                        const EdgeInsets.only(left: 16, right: 16, top: 10),
-                        child: Container(
-                          width: deviceWidth,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5)
+                      FadeInRight(
+                        delay: Duration(milliseconds: 400),
+
+                        child: Padding(
+                          padding:
+                          const EdgeInsets.only(left: 16, right: 16, top: 10),
+                          child: Container(
+                            width: deviceWidth,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5)
+                            ),
+                            child: CarouselSlider(
+                                items: banners1,
+                                options: CarouselOptions(
+                                  height: size.height * 0.12,
+                                  aspectRatio: 18 / 9,
+                                  initialPage: 0,
+                                  viewportFraction:1.0,
+                                  //enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+                                  // padEnds: true,
+                                  // enableInfiniteScroll: true,
+                                  reverse: false,
+                                  autoPlay: true,
+                                  autoPlayInterval: const Duration(seconds: 3),
+                                  autoPlayAnimationDuration:
+                                  const Duration(milliseconds: 800),
+                                  autoPlayCurve: Curves.fastOutSlowIn,
+                                  // enlargeFactor: 0.5,
+                                  onPageChanged: (index, reason) {
+                                    //vm.setCurrentIndex(index);
+                                  },
+                                  scrollDirection: Axis.horizontal,
+                                )),
                           ),
-                          child: CarouselSlider(
-                              items: banners1,
-                              options: CarouselOptions(
-                                height: size.height * 0.12,
-                                aspectRatio: 18 / 9,
-                                initialPage: 0,
-                                viewportFraction:1.0,
-                                //enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-                                // padEnds: true,
-                                // enableInfiniteScroll: true,
-                                reverse: false,
-                                autoPlay: true,
-                                autoPlayInterval: const Duration(seconds: 3),
-                                autoPlayAnimationDuration:
-                                const Duration(milliseconds: 800),
-                                autoPlayCurve: Curves.fastOutSlowIn,
-                                // enlargeFactor: 0.5,
-                                onPageChanged: (index, reason) {
-                                  //vm.setCurrentIndex(index);
-                                },
-                                scrollDirection: Axis.horizontal,
-                              )),
                         ),
                       ),
                       SizedBox(
                         height: size.height*0.007,
                       ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 16, right: 16, top: 10),
-                        child: GridView.count(
-                          shrinkWrap: true,
-                          padding: EdgeInsets.zero,
-                          //physics: const NeverScrollableScrollPhysics(),
-                          crossAxisCount: 3,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                          children: [
-                            itemDashboard('STAS', CupertinoIcons.play_rectangle,
-                                Color(0xFF1f74ec), 'assets/images/stas.png', Color(0xFFeef4fe)),
-                            itemDashboard('Project',
-                                CupertinoIcons.graph_circle, Color(0xFF4e1bd9), 'assets/images/project.png',Color(0xFFf3eefe)),
-                            itemDashboard('STC Support', CupertinoIcons.person_2,
-                                Color(0xFF0eb01d),'assets/images/support.png',Color(0xFFddfce0)),
-                            itemDashboard(
-                                'VMS', CupertinoIcons.chat_bubble_2, Color(0xFF9ddbd5),'assets/images/vms.png',Color(0xFFfef0db)),
-                            itemDashboard('Access',
-                                CupertinoIcons.money_dollar_circle, Color(0xFF1f74ec),'assets/images/access.png',Color(0xFFeef4fe)),
-                            itemDashboard('Contacts',
-                                CupertinoIcons.money_dollar_circle, Color(0xFF1f74ec),'assets/images/phone.png',Color(0xFFeef4fe)),
-                          ],
+                      FadeInUp(
+                        delay: Duration(milliseconds: 500),
+
+                        child: Padding(
+                          padding:
+                              const EdgeInsets.only(left: 16, right: 16, top: 10),
+                          child: GridView.count(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.zero,
+                            //physics: const NeverScrollableScrollPhysics(),
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                            children: [
+                              itemDashboard('STAS', CupertinoIcons.play_rectangle,
+                                  Color(0xFF1f74ec), 'assets/images/stas.png', Color(0xFFeef4fe)),
+                              itemDashboard('Project',
+                                  CupertinoIcons.graph_circle, Color(0xFF4e1bd9), 'assets/images/project.png',Color(0xFFf3eefe)),
+                              itemDashboard('STC Support', CupertinoIcons.person_2,
+                                  Color(0xFF0eb01d),'assets/images/support.png',Color(0xFFddfce0)),
+                              itemDashboard(
+                                  'VMS', CupertinoIcons.chat_bubble_2, Color(0xFF9ddbd5),'assets/images/vms.png',Color(0xFFfef0db)),
+                              itemDashboard('Access',
+                                  CupertinoIcons.money_dollar_circle, Color(0xFF1f74ec),'assets/images/access.png',Color(0xFFeef4fe)),
+                              itemDashboard('Contacts',
+                                  CupertinoIcons.money_dollar_circle, Color(0xFF1f74ec),'assets/images/phone.png',Color(0xFFeef4fe)),
+                            ],
+                          ),
                         ),
                       ),
                     ],

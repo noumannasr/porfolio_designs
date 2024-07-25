@@ -1,19 +1,23 @@
 import 'package:bright_up_image/view/animationCust/main_screen.dart';
+import 'package:bright_up_image/view/cakeRecipes/cake_recipes.dart';
+import 'package:bright_up_image/view/dashboard/dashboard_view.dart';
+import 'package:bright_up_image/view/graph_chart/ghrap_chart_screen.dart';
+import 'package:bright_up_image/view/homes/home_four.dart';
 import 'package:bright_up_image/view/homes/home_page.dart';
 import 'package:bright_up_image/view/homes/step_home.dart';
 import 'package:bright_up_image/themesCustom/custom_theme.dart';
+import 'package:bright_up_image/view/slideToRate/slide_to_rate.dart';
+import 'package:bright_up_image/view/slide_to_delete.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(
-
-
-    MaterialApp(
+void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: AppTheme.get(isLight: false),
-      home: MainScreen(),
+      home: HomePage(),
       // home: HomePage(),
     ));
 
@@ -28,7 +32,7 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 HeaderCompenent(),
                 Padding(
-                  padding: EdgeInsets.all(30.0),
+                  padding: EdgeInsets.only(top: 0, left: 30,right: 30,bottom: 30),
                   child: Column(
                     children: <Widget>[
                       FadeInUp(
@@ -90,7 +94,7 @@ class HomePage extends StatelessWidget {
                           Navigator.of(context).push(PageRouteBuilder(
                             pageBuilder:
                                 (context, animation, secondaryAnimation) =>
-                                    const MyHomePage(),
+                                    HomeFour(),
                             transitionsBuilder: (context, animation,
                                 secondaryAnimation, child) {
                               return child;
@@ -104,30 +108,77 @@ class HomePage extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   gradient: const LinearGradient(colors: [
-                                    Color(0xFF9ddbd5),
-                                    //Color.fromRGBO(143, 148, 251, 1),
-                                    Color.fromRGBO(143, 148, 251, .6),
+
+                                    Color.fromRGBO(143, 148, 251, 1),
+                                    Color.fromRGBO(143, 148, 251, 1),
                                   ])),
                               child: const Center(
                                 child: Text(
                                   "Login",
                                   style: TextStyle(
                                       color: Colors.white,
+                                      fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
                             )),
                       ),
                       const SizedBox(
-                        height: 70,
+                        height: 10,
                       ),
                       FadeInUp(
                           duration: const Duration(milliseconds: 2000),
                           child: const Text(
                             "Forgot Password?",
                             style: TextStyle(
-                                color: Color.fromRGBO(143, 148, 251, 1)),
+                                color: Colors.black),
                           )),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                                width: 35,
+                                height: 35,
+                                child: Image.asset("assets/images/facebook.png")),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            SizedBox(
+                              width: 35,
+                              height: 35,
+                              child: Image.asset(
+                                "assets/images/google.png",
+                                width: 30,
+                                height: 30,
+                              ),
+                            ),
+
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Don't have an account?",
+                            style: GoogleFonts.ubuntu(
+                                color: Colors.black, fontWeight: FontWeight.w500),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "Sign Up",
+                            style: GoogleFonts.ubuntu(
+                                color: Colors.black, fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      )
                     ],
                   ),
                 )

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:bright_up_image/constant.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -42,28 +43,40 @@ class _HomeThreeState extends State<HomeThree> {
       backgroundColor: AppColors.bg,
       appBar: AppBar(
         backgroundColor: AppColors.bg,
-        leading: Icon(
-          Icons.menu,
-          color: Colors.black,
+        leading: FadeInLeft(
+          delay: Duration(milliseconds: 300),
+
+          child: Icon(
+            Icons.menu,
+            color: Colors.black,
+          ),
         ),
         actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 4.0),
-            child: IconButton(
-              icon: FaIcon(
-                FontAwesomeIcons.bell,
-                color: Colors.black,
+          FadeInLeft(
+            delay: Duration(milliseconds: 400),
+
+            child: Padding(
+              padding: EdgeInsets.only(right: 4.0),
+              child: IconButton(
+                icon: FaIcon(
+                  FontAwesomeIcons.bell,
+                  color: Colors.black,
+                ),
+                onPressed: () {},
               ),
-              onPressed: () {},
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(right: 10.0),
-            child: IconButton(
-              icon: FaIcon(
-                FontAwesomeIcons.comment,
-                color: Colors.black,              ),
-              onPressed: () {},
+          FadeInRight(
+            delay: Duration(milliseconds: 450),
+
+            child: Padding(
+              padding: EdgeInsets.only(right: 10.0),
+              child: IconButton(
+                icon: FaIcon(
+                  FontAwesomeIcons.comment,
+                  color: Colors.black,              ),
+                onPressed: () {},
+              ),
             ),
           ),
         ],
@@ -71,75 +84,79 @@ class _HomeThreeState extends State<HomeThree> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 8, right: 8),
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Color(0xFFF7AFC4),
-                          Color(0xFFE9938F),
-                          //AppColors.lightPink,
-                          AppColors.pink,
-                        ])),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8, top: 8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text('Muhammad Nouman Nasr',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headlineSmall
-                                  ?.copyWith(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16)),
-                          Text('Flutter Developer',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.copyWith(
-                                      color: Colors.white, fontSize: 14)),
-                        ],
+            FadeInRight(
+              delay: Duration(milliseconds: 600),
+
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8, right: 8),
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xFFF7AFC4),
+                            Color(0xFFE9938F),
+                            //AppColors.lightPink,
+                            AppColors.pink,
+                          ])),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8, top: 8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Muhammad Nouman Nasr',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall
+                                    ?.copyWith(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16)),
+                            Text('Flutter Developer',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(
+                                        color: Colors.white, fontSize: 14)),
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        width: 110,
-                        height: 110,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  AppColors.darkPurple,
-                                  Color(0xFFF76C70),
-                                ])),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            radius: 30,
-                            backgroundImage: NetworkImage(
-                                'https://services.securetech-consultancy.com/personservice/PersonVerificationData/profilePhoto/4068'),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          width: 110,
+                          height: 110,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    AppColors.darkPurple,
+                                    Color(0xFFF76C70),
+                                  ])),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CircleAvatar(
+                              radius: 30,
+                              backgroundImage: NetworkImage(
+                                  'https://services.securetech-consultancy.com/personservice/PersonVerificationData/profilePhoto/4068'),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -147,22 +164,26 @@ class _HomeThreeState extends State<HomeThree> {
               height: size.height*0.007,
             ),
 
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
-              child: GridView.builder(
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent:
-                      160.0, // Set the maximum width for each item
-                  mainAxisSpacing: 10.0,
-                  // Spacing between items on the main axis
-                  crossAxisSpacing:
-                      10.0, // Spacing between items on the cross axis
+            FadeInUp(
+              delay: Duration(milliseconds: 1000),
+
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent:
+                        160.0, // Set the maximum width for each item
+                    mainAxisSpacing: 10.0,
+                    // Spacing between items on the main axis
+                    crossAxisSpacing:
+                        10.0, // Spacing between items on the cross axis
+                  ),
+                  itemCount: list.length,
+                  itemBuilder: (context, index) {
+                    return list[index];
+                  },
                 ),
-                itemCount: list.length,
-                itemBuilder: (context, index) {
-                  return list[index];
-                },
               ),
             ),
           ],

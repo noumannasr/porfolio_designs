@@ -1,19 +1,21 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:bright_up_image/constant.dart';
+import 'package:bright_up_image/view/cakeRecipes/cakeDetail/cake_detail_view.dart';
+import 'package:bright_up_image/view/cakeRecipes/cake_recipe_vm.dart';
 import 'package:bright_up_image/view/dashboard/dashboard_view.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomeFour extends StatefulWidget {
-  const HomeFour({super.key});
+class CakeRecipeView extends StatefulWidget {
+  const CakeRecipeView({super.key});
 
   @override
-  State<HomeFour> createState() => _HomeFourState();
+  State<CakeRecipeView> createState() => _CakeRecipeViewState();
 }
 
-class _HomeFourState extends State<HomeFour> {
+class _CakeRecipeViewState extends State<CakeRecipeView> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -26,30 +28,53 @@ class _HomeFourState extends State<HomeFour> {
     double height = size.height * 0.16.toDouble();
     List<Widget> list = [
       itemDashboard(
-          'Create Event',
-          FontAwesomeIcons.add,
-          const Color(0xFFF79755),
+          'Mango Cake',
+          AppImages.mangoCake,
+          const Color(0xFFF7BE55),
           'assets/images/stas2.jpg',
           const Color(0xFFeef4fe).withOpacity(0.5),
           0),
       itemDashboard(
-          'Events',
-          FontAwesomeIcons.calendar,
-          const Color(0xFFF7A1BA),
+          'Choclate Cake',
+          AppImages.choclateCake,
+          const Color(0xFF4F230C),
           'assets/images/project2.jpg',
           const Color(0xFFf3eefe),
           1),
-      itemDashboard('Guests', FontAwesomeIcons.person, const Color(0xFF0eb01d),
-          'assets/images/support.png', const Color(0xFFddfce0), 2),
-      itemDashboard('Menu', FontAwesomeIcons.bowlFood, const Color(0xFF9ddbd5),
+      itemDashboard(
+          'Red Velvet Cake',
+          AppImages.redVelvetCake,
+          const Color(0xfff32f3f),
+          'assets/images/support.png',
+          const Color(0xFFddfce0),
+          2),
+      itemDashboard('Fruit Cake', AppImages.fruitCake, const Color(0xfff3c35d),
           'assets/images/vms.png', const Color(0xFFfef0db), 3),
-      itemDashboard('Tasks', FontAwesomeIcons.listCheck, const Color(0xFF1f74ec),
-          'assets/images/access.png', const Color(0xFFeef4fe), 4),
-      itemDashboard('Settings', FontAwesomeIcons.gear, const Color(0xFF1f74ec),
-          'assets/images/phone.png', const Color(0xFFeef4fe), 5),
+      itemDashboard(
+          'Sponge Cake',
+          AppImages.spongeCake,
+          const Color(0xFF1f74ec),
+          'assets/images/access.png',
+          const Color(0xFFeef4fe),
+          4),
+      itemDashboard(
+          'Carrot Cake',
+          AppImages.carrotCake,
+          const Color(0xffe7f568),
+          'assets/images/phone.png',
+          const Color(0xFFeef4fe),
+          5),
     ];
     return Scaffold(
       backgroundColor: AppColors.lightWhite,
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFffd7c8),
+        title: const Text(
+          "Sweet Cake's",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Container(
           decoration: const BoxDecoration(
@@ -58,129 +83,30 @@ class _HomeFourState extends State<HomeFour> {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-             //   Color(0xFFe4cbe8),
-             //   Color(0xFFffc4e8),
-             //   Color(0xFFffc5c9),
-                Color(0xFFffc5c9),
                 Color(0xFFffd7c8),
                 Color(0xFFffd7c8),
+                Color(0xFFfff9c6),
 
                 //Colors.amberAccent,
               ])),
-          child: Stack(
-            alignment: Alignment.topCenter,
+          child: Column(
             children: [
-              FadeInUp(
-                delay: const Duration(milliseconds: 500),
-                child: Container(
-                  decoration: const BoxDecoration(
-                      //borderRadius: BorderRadius.circular(20),
-                      // gradient: LinearGradient(
-                      //     begin: Alignment.topLeft,
-                      //     end: Alignment.bottomRight,
-                      //     colors: [
-                      //   Color(0xFFe4cbe8),
-                      //   Color(0xFFffc4e8),
-                      //   Color(0xFFffc5c9),
-                      //   Color(0xFFffd7c8),
-                      //   Color(0xFFfedfc7),
-                      //   Color(0xFFffedc8),
-                      //
-                      //   //Colors.amberAccent,
-                      // ])
-
-                  ),
-                  child: Column(
-                    children: [
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              FadeInRight(
-                                delay: const Duration(milliseconds: 600),
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 10, right: 0),
-                                  child: Container(
-                                    width: 50,
-                                    height: 50,
-                                    child: const Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                      child: CircleAvatar(
-                                        radius: 30,
-                                        backgroundImage: CachedNetworkImageProvider(
-                                            'https://services.securetech-consultancy.com/personservice/PersonVerificationData/profilePhoto/4068'),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Text('Nouman',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineSmall
-                                      ?.copyWith(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15)),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              FadeInRight(
-                                delay: const Duration(milliseconds: 400),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 4.0),
-                                  child: IconButton(
-                                    icon: const FaIcon(
-                                      FontAwesomeIcons.bell,
-                                      color: Colors.white,
-                                    ),
-                                    onPressed: () {},
-                                  ),
-                                ),
-                              ),
-                              FadeInRight(
-                                delay: const Duration(milliseconds: 450),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 10.0),
-                                  child: IconButton(
-                                    icon: const FaIcon(
-                                      FontAwesomeIcons.comment,
-                                      color: Colors.white,
-                                    ),
-                                    onPressed: () {},
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-                      Padding(
-                        padding: const EdgeInsets.all(0.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TimerItem(title: 'Days', days: '02'),
-                            TimerItem(title: 'Hours', days: '05'),
-                            TimerItem(title: 'Mins', days: '25'),
-                            TimerItem(title: 'Secs', days: '35', mark: false),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
               Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 16),
+                    child: Text(
+                      "Categories",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15),
+                    ),
+                  ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 110),
+                    padding: const EdgeInsets.only(top: 8),
                     child: Container(
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -202,7 +128,7 @@ class _HomeFourState extends State<HomeFour> {
                                     left: 10, right: 10, top: 0, bottom: 0),
                                 child: GridView.builder(
                                   padding: EdgeInsets.zero,
-                                  physics: NeverScrollableScrollPhysics(),
+                                  physics: const NeverScrollableScrollPhysics(),
                                   shrinkWrap: true,
                                   gridDelegate:
                                       const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -234,10 +160,14 @@ class _HomeFourState extends State<HomeFour> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 12, bottom: 5,top: 10,),
+                            const Padding(
+                              padding: EdgeInsets.only(
+                                left: 12,
+                                bottom: 5,
+                                top: 10,
+                              ),
                               child: Text(
-                                "Upcoming Events",
+                                "Popular Cakes",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -248,27 +178,35 @@ class _HomeFourState extends State<HomeFour> {
                               height: deviceHeight * 0.5,
                               child: ListView.builder(
                                   padding: EdgeInsets.zero,
-                                  itemCount: 10,
+                                  itemCount: CakeRecipeVm.popularCakes.length,
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
                                   itemBuilder: (context, index) {
+                                    final item =
+                                        CakeRecipeVm.popularCakes[index];
                                     return index > 3
                                         ? SizedBox(
                                             height: height * 0.05,
                                           )
                                         : GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context).push(PageRouteBuilder(
-                                          pageBuilder:
-                                              (context, animation, secondaryAnimation) =>
-                                              MyHomePageD(title: ''),
-                                          transitionsBuilder: (context, animation,
-                                              secondaryAnimation, child) {
-                                            return child;
-                                          },
-                                        ));
-                                      },
-                                          child: Padding(
+                                            onTap: () {
+                                              Navigator.of(context)
+                                                  .push(PageRouteBuilder(
+                                                pageBuilder: (context,
+                                                        animation,
+                                                        secondaryAnimation) =>
+                                                    CakeDetailView(
+                                                  cakeModel: item,
+                                                ),
+                                                transitionsBuilder: (context,
+                                                    animation,
+                                                    secondaryAnimation,
+                                                    child) {
+                                                  return child;
+                                                },
+                                              ));
+                                            },
+                                            child: Padding(
                                               padding: const EdgeInsets.only(
                                                   left: 10,
                                                   right: 10,
@@ -278,8 +216,8 @@ class _HomeFourState extends State<HomeFour> {
                                                 decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(20),
-                                                  color:
-                                                      Colors.white.withOpacity(0.6),
+                                                  color: Colors.white
+                                                      .withOpacity(0.4),
                                                 ),
                                                 child: Padding(
                                                   padding:
@@ -288,16 +226,11 @@ class _HomeFourState extends State<HomeFour> {
                                                     children: [
                                                       ClipRRect(
                                                         borderRadius:
-                                                            BorderRadius.circular(
-                                                                20),
-                                                        child: CachedNetworkImage(
-                                                          imageUrl: index == 0
-                                                              ? 'https://images.inc.com/uploaded_files/image/1920x1080/getty_479977238_253066.jpg'
-                                                              : index == 1
-                                                                  ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWZCLXUQ_hvQxdlG3CyfRQ7bDNpLgBOOOcUzu9uA82Sl6WousfE9-Vxw9S_Pj9m6WuVpA&usqp=CAU'
-                                                                  : index == 2 ? 'https://media.istockphoto.com/id/471906412/photo/beautiful-table-setting-for-an-wedding-reception-or-an-event.webp?b=1&s=170667a&w=0&k=20&c=o-cOg8tKKH10TxUg9EAlHbSfjRPoMdgVFzpRpQqTaVI='
-                                                          : 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/eid-ul-fitr-mubarak-story-template-design-9090446d2c6d95ba89c901c7564dd79e_screen.jpg?ts=1712826250'
-                                                          ,
+                                                            BorderRadius
+                                                                .circular(20),
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          imageUrl: item.image,
                                                           height: 80,
                                                           width: 80,
                                                           fit: BoxFit.cover,
@@ -305,51 +238,47 @@ class _HomeFourState extends State<HomeFour> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsets.only(
-                                                                left: 10),
+                                                            const EdgeInsets
+                                                                .only(left: 10),
                                                         child: Column(
                                                           crossAxisAlignment:
                                                               CrossAxisAlignment
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              index == 0
-                                                                  ? 'Anniversary'
-                                                                  : index == 1 ? "Birthday Party"
-                                                              : index == 2 ? "Wedding" : "Eid-ul-Fitr"
-                                                              ,
-                                                              style: TextStyle(
-                                                                  color:
-                                                                      Colors.black,
+                                                              item.title,
+                                                              style: const TextStyle(
+                                                                  color: Colors
+                                                                      .black,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
                                                                   fontSize: 15),
                                                             ),
-                                                            SizedBox(
+                                                            const SizedBox(
                                                               height: 2,
                                                             ),
                                                             Text(
-                                                              "4 July 08:30 PM",
-                                                              style: TextStyle(
-                                                                  color:
-                                                                      Colors.grey,
+                                                              item.time,
+                                                              style: const TextStyle(
+                                                                  color: Colors
+                                                                      .grey,
+                                                                  fontSize: 12,
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .w500),
+                                                                          .w400),
                                                             ),
-                                                            SizedBox(
+                                                            const SizedBox(
                                                               height: 2,
                                                             ),
                                                             Text(
-                                                              index == 0 || index == 3
-                                                                  ? "3 days left" :
-                                                              index == 2 ? "4 days left" :
-                                                                   "Tomorrow",
+                                                              item.type,
                                                               style: TextStyle(
-                                                                  color:
-                                                                      Colors.black.withOpacity(0.7),
-                                                                  fontSize: 13,
+                                                                  color: Colors
+                                                                      .black
+                                                                      .withOpacity(
+                                                                          0.7),
+                                                                  fontSize: 12,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500),
@@ -362,7 +291,7 @@ class _HomeFourState extends State<HomeFour> {
                                                 ),
                                               ),
                                             ),
-                                        );
+                                          );
                                   }),
                             ),
                           ],
@@ -379,11 +308,11 @@ class _HomeFourState extends State<HomeFour> {
     );
   }
 
-  itemDashboard(String title, IconData iconData, Color background, String image,
+  itemDashboard(String title, String imageCake, Color background, String image,
           Color bg, int index) =>
       Container(
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.6), //bg,
+          color: Colors.white.withOpacity(0.4), //bg,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
@@ -392,53 +321,20 @@ class _HomeFourState extends State<HomeFour> {
           children: [
             Center(
               child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: index == 0
-                              ? [
-                                  const Color(0xFFF79755).withOpacity(0.5),
-                                  const Color(0xFFD5444E),
-                                ]
-                              : index == 1
-                                  ? [
-                                      const Color(0xFF63D4D7).withOpacity(0.5),
-                                      const Color(0xFF63D4D7),
-                                    ]
-                                  : index == 2
-                                      ? [
-                                          const Color(0xFFD071D3)
-                                              .withOpacity(0.9),
-                                          const Color(0xFF8D83DE),
-                                        ]
-                                      : index == 3
-                                          ? [
-                                              const Color(0xFFF297AE)
-                                                  .withOpacity(0.5),
-                                              const Color(0xFFF297AE),
-                                            ]
-                                          : index == 4
-                                              ? [
-                                                  const Color(0xFF63AEF7)
-                                                      .withOpacity(0.5),
-                                                  const Color(0xFF63AEF7),
-                                                ]
-                                              : [
-                                                  const Color(0xFFE88E1D)
-                                                      .withOpacity(0.5),
-                                                  const Color(0xFFE88E1D),
-                                                ])),
+                  height: 55,
+                  width: 100,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
                   padding: const EdgeInsets.all(0),
                   child: Center(
-                    child: FaIcon(
-                      iconData,
-                      color: Colors.white,
+                      child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: CachedNetworkImage(
+                      imageUrl: imageCake,
+                      fit: BoxFit.cover,
                     ),
-                  )
+                  ))
 
                   // IconButton(
                   //   icon: index == 0
@@ -518,25 +414,25 @@ class TimerItem extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.white,
                   fontSize: 15,
                   fontWeight: FontWeight.w500),
             ),
             Text(
               days,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.white,
                   fontSize: 15,
                   fontWeight: FontWeight.w500),
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         mark
-            ? Column(
+            ? const Column(
                 children: [
                   Text(
                     ':',
@@ -547,8 +443,8 @@ class TimerItem extends StatelessWidget {
                   ),
                 ],
               )
-            : SizedBox(),
-        SizedBox(
+            : const SizedBox(),
+        const SizedBox(
           width: 10,
         )
       ],
